@@ -13,7 +13,8 @@ class FirebaseService {
 
     public function __construct()
     {
-        $this->firebase = (new Factory)->withServiceAccount('../Key/configfirebase.json')->withDatabaseUri('https://app-chat-17c53-default-rtdb.firebaseio.com/');;
+        $this->firebase = (new Factory)->withServiceAccount('../Key/configfirebase.json')
+            ->withDatabaseUri('https://app-chat-17c53-default-rtdb.firebaseio.com/');
         $this->db = $this->firebase->createDatabase();
         $this->auth = $this->firebase->createAuth();
     }
@@ -30,5 +31,15 @@ class FirebaseService {
     {
         $ref = $this->db->getReference('/messages');
         $ref->push($data);
+    }
+
+    public function registration($data)
+    {
+        $this->auth->createUser($data);
+    }
+
+    public function login($email, $password)
+    {
+        return $this->auth->signInWithEmailAndPassword($email, $password);
     }
 }

@@ -29,4 +29,27 @@ class FirebaseController extends Controller
         ];
         $this->firebaseService->sendMessage($data);
     }
+
+    public function registration()
+    {
+        $userProperties = [
+            'email' => 'admin@gmail.com',
+            'emailVerified' => false,
+            'phoneNumber' => '+84988888888',
+            'password' => '123456',
+            'displayName' => 'Admin'
+        ];
+        $this->firebaseService->registration($userProperties);
+    }
+
+    public function login()
+    {
+        $params = [
+            'email' => 'admin@gmail.com',
+            'password' => '123456'
+        ];
+
+        $user = $this->firebaseService->login($params['email'], $params['password']);
+        return $user->data();
+    }
 }

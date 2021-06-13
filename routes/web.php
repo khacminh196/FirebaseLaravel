@@ -19,3 +19,5 @@ Route::get('/', function () {
 
 Route::get('mess', 'FirebaseController@index');
 Route::get('sendMess', 'FirebaseController@sendMess');
+Route::get('registration', 'FirebaseController@registration');
+Route::get('login', 'FirebaseController@login');
