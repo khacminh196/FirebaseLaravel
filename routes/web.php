@@ -21,3 +21,6 @@ Route::get('mess', 'FirebaseController@index');
 Route::get('sendMess', 'FirebaseController@sendMess');
 Route::get('registration', 'FirebaseController@registration');
 Route::get('login', 'FirebaseController@login');
+Route::get('loginWithIdToken', 'FirebaseController@loginWithIdToken');
+Route::get('firestore', 'FirebaseController@firestore');
+Route::get('userInfo', 'FirebaseController@userInfo');
